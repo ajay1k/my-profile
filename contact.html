@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        /* Background styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('bkg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .profile-section {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="profile-section">
+            <h2>Contact Me</h2>
+            <form id="contactForm" onsubmit="sendWhatsAppMessage(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="9876543210" required>
+
+                <button type="submit">Send via WhatsApp</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function sendWhatsAppMessage(event) {
+            event.preventDefault();
+
+            // Get form values
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            // Validate phone number
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return;
+            }
+
+            // Construct the message
+            const message = `Hello! My name is ${name}. My email is ${email}, and my phone number is ${phone}.`;
+
+            // Encode message for WhatsApp
+            const encodedMessage = encodeURIComponent(message);
+
+            // WhatsApp link for the mobile app (replace '9324060071' with the phone number you'd like to send the message to)
+            const whatsappURL = `whatsapp://send?phone=+9324060071&text=${encodedMessage}`;
+
+            // Try opening WhatsApp app
+            window.location.href = whatsappURL;
+
+            // Reset the form
+            document.getElementById("contactForm").reset();
+
+            // Focus on the first field after resetting (to re-enable new submission)
+            document.getElementById("name").focus();
+        }
+    </script>
+</body>
+</html>
