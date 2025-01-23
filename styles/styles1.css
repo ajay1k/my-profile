@@ -1,0 +1,252 @@
+/* Global Variables for Color Scheme */
+:root {
+    --primary-color: #5109e2;
+    --secondary-color: #0c7215;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --button-color: hsl(1, 96%, 51%);
+    --button-text-color: #fff;
+    --footer-bg-color: #2c3e50;
+    --footer-text-color: #ecf0f1;
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: url('background..jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 300vh;
+}
+
+/* Semi-Transparent Overlay for Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust transparency as needed */
+    z-index: -1;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500%;
+    background-color: black; /* Semi-transparent background */
+    color: var(--footer-text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+}
+
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    border-radius: 100px;
+    max-width: 900px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-photo img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile-section h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.profile-section p {
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+/* Button Styling */
+.cta-button {
+    display: inline-block;
+    padding: 09px 10px;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Page Links Section */
+.page-links {
+    text-align: center;
+    padding: 20px 40px;
+    background: rgb(255, 255, 255);
+    margin: 20px auto;
+    border-radius: 60px;
+    max-width: 1800px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.page-links h2 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.link-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 20px;
+    text-align: center;
+    font-size: 1em;
+}
+
+footer a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Full-Screen Pop-Up */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup.visible {
+    display: flex; /* Make the pop-up visible */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: -10px;
+    max-width: 100px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.popup-content h2 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.popup-content p {
+    color: #666;
+    margin: 0 0 20px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.popup-content .close-popup {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.popup-content .close-popup:hover {
+    background-color: #c0392b;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .profile-photo img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-section {
+        padding: 30px;
+    }
+
+    .cta-button {
+        padding: 8px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profile-photo img {
+        width: 200px;
+        height: 00px;
+    }
+
+    .profile-section h2 {
+        font-size: 1.5em;
+    }
+
+    .profile-section p {
+        font-size: 1em;
+    }
+
+    .cta-button {
+        font-size: 1.0em;
+    }
+}
