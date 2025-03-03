@@ -31,6 +31,29 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+        .styled-button {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-family: 'Arial', sans-serif;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .styled-button:hover {
+        background-color: #45a049;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .styled-button:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
     </style>
 </head>
 <body>
@@ -72,14 +95,12 @@
     <!-- Buttons -->
     <div style="text-align:center; margin-top: 20px;">
         <a href="index.html">
-            <button style="padding: 10px 20px; font-size: 16px; margin-right: 20px;">Back to Home</button>
+            <button class="styled-button">Back to Home</button>
         </a>
-        <a href="https://ajay1k.github.io/rfid/" target="_blank">
-            <button style="padding: 10px 20px; font-size: 16px;">Visit Website</button>
+        <a href="https://www.example.com" target="_blank">
+            <button class="styled-button">Visit Website</button>
         </a>
     </div>
 </section>
-
-
 </body>
 </html>
